@@ -1,6 +1,6 @@
 <template>
+  <h1>Show Page</h1>
   <div>
-    Show
     <Link href="/">Home</Link>
   </div>
 </template>
