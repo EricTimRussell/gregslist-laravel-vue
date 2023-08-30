@@ -1,12 +1,14 @@
 <template>
   <div>
-    {{ listings.city }} {{ listings.street_nr }}, {{ listings.city }}, for {{ listings.price }}
+    <ListingAddress :listing="listing" />
   </div>
 </template>
 
 <script setup>
+import ListingAddress from '@/Components/ListingAddress.vue'
+
 defineProps({
-  listings: { type: Object, required: true }
+  listing: { type: Object, required: true }
 })
 </script>
 
