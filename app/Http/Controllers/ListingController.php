@@ -33,7 +33,19 @@ class ListingController extends Controller
      */
     public function store(Request $request)
     {
-        Listing::create($request->all());
+        Listing::create(
+            // add validation constraints for data validation and handleInertiaRequests middleware will handle any errors that occur
+            $request->validate([
+                'beds' => 'required|integer|min:0|max:20',
+                'baths' => 'required|integer|min:0|max:20',
+                'area' => 'required|integer|min:250|max:10000',
+                'city' => 'required',
+                'code' => 'required',
+                'street' => 'required',
+                'street_nr' => 'required|min:1|max:9999',
+                'price' => 'required|integer|min:1|max:20000000',
+            ])
+        );
 
         return to_route('listing.index')
             ->with('success', 'Listing was created!');
