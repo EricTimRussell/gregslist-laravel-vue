@@ -10,7 +10,7 @@
         </div>
         <div>
           <Link href="/listing/create"
-            class="bg-indigo-600 hover:bg-indigo-500 text-white font-medium p-2 rounded-md shadow-lg">+
+            class="btn-primary">+
           New Listing
           </Link>
         </div>
