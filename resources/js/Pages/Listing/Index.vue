@@ -3,7 +3,9 @@
     <Box v-for="listing in listings" :key="listing.id" class="hover:scale-105 hover:bg-slate-800 cursor-pointer">
       <div>
         <Link :href="`listing/${listing.id}`">
-        <Price :price="listing.price" class="text-2xl font-bold" />
+        <div class="flex items-center gap-1">
+          <Price :price="listing.price" class="text-2xl font-bold" />
+        </div>
         <ListingSpace :listing="listing" class="text-large" />
         <ListingAddress :listing="listing" class="text-gray-500" />
         </Link>
