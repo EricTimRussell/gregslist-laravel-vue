@@ -1,6 +1,6 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
-    <Box v-for="listing in listings" :key="listing.id">
+    <Box v-for="listing in listings" :key="listing.id" class="hover:scale-105 hover:bg-slate-800 cursor-pointer">
       <div>
         <Link :href="`listing/${listing.id}`">
         <Price :price="listing.price" class="text-2xl font-bold" />
