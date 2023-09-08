@@ -13,7 +13,7 @@
           <Link href="/listing/create" class="btn-primary">+
           New Listing
           </Link>
-          <div>Logout</div>
+          <Link as="button" :href="route('logout')" method="delete">Logout</Link>
         </div>
         <div v-else>
           <Link :href="route('login')">Sign-In</Link>

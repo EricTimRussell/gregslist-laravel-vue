@@ -31,8 +31,14 @@ class AuthController extends Controller
         return redirect()->intended();
     }
 
-    // Logout function
-    public function destroy()
+    // Logout user
+    public function destroy(Request $requset)
     {
+        Auth::logout();
+
+        $requset->session()->invalidate();
+        $requset->session()->regenerateToken();
+
+        return redirect()->intended();
     }
 }
