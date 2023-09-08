@@ -39,5 +39,5 @@ const form = useForm({
 })
 
 // @ts-ignore
-const register = () => form.post('')
+const register = () => form.post(route('user-account.store'))
 </script>
