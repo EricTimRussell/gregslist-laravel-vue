@@ -11,7 +11,9 @@ class ListingPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user)
+
+    //  ? mark infront of class means it can be nullable
+    public function viewAny(?User $user)
     {
         return true;
     }
@@ -19,7 +21,9 @@ class ListingPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Listing $listing)
+
+    //  ? mark infront of class means it can be nullable
+    public function view(?User $user, Listing $listing)
     {
         return true;
     }
