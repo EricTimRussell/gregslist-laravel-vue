@@ -11,7 +11,8 @@ class VerifyCsrfToken extends Middleware
      *
      * @var array<int, string>
      */
+    // When a users token expires they can still logout without errors
     protected $except = [
-        //
+        '/logout'
     ];
 }
