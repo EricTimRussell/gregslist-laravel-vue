@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Listing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ListingController extends Controller
 {
@@ -33,7 +34,8 @@ class ListingController extends Controller
      */
     public function store(Request $request)
     {
-        Listing::create(
+        // associate user with the created listing
+        $request->user()->listings()->create(
             // add validation constraints for data validation and handleInertiaRequests middleware will handle any errors that occur
             $request->validate([
                 'beds' => 'required|integer|min:0|max:20',
