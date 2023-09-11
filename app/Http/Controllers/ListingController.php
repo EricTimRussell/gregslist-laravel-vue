@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class ListingController extends Controller
 {
+    public function __construct()
+    {
+        // use listing policy class to determine what paths users are authorized
+        $this->authorizeResource(Listing::class, 'listing');
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -26,6 +32,8 @@ class ListingController extends Controller
      */
     public function create()
     {
+        // specific class in creates for authorization
+        // $this->authorize('create', Listing::class);
         return inertia('Listing/Create');
     }
 
@@ -58,6 +66,9 @@ class ListingController extends Controller
      */
     public function show(Listing $listing)
     {
+        //   check whether user is authorized
+        // $this->authorize('view', $listing);
+
         return inertia(
             'Listing/Show',
             [
