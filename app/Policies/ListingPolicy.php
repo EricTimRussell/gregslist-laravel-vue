@@ -12,7 +12,7 @@ class ListingPolicy
      * Determine whether the user can view any models.
      */
 
-    //  ? mark infront of class means it can be nullable
+    //  ? mark infront of User class means it can be nullable
     public function viewAny(?User $user)
     {
         return true;
@@ -22,7 +22,7 @@ class ListingPolicy
      * Determine whether the user can view the model.
      */
 
-    //  ? mark infront of class means it can be nullable
+    //  ? mark infront of User class means it can be nullable
     public function view(?User $user, Listing $listing)
     {
         return true;
@@ -41,7 +41,7 @@ class ListingPolicy
      */
     public function update(User $user, Listing $listing)
     {
-        return true;
+        return $user->id === $listing->by_user_id;
     }
 
     /**
@@ -49,7 +49,7 @@ class ListingPolicy
      */
     public function delete(User $user, Listing $listing)
     {
-        return true;
+        return $user->id === $listing->by_user_id;
     }
 
     /**
@@ -57,7 +57,7 @@ class ListingPolicy
      */
     public function restore(User $user, Listing $listing)
     {
-        return true;
+        return $user->id === $listing->by_user_id;
     }
 
     /**
@@ -65,6 +65,6 @@ class ListingPolicy
      */
     public function forceDelete(User $user, Listing $listing)
     {
-        return true;
+        return $user->id === $listing->by_user_id;
     }
 }
