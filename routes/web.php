@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountDetailsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ListingController;
@@ -38,3 +39,11 @@ Route::delete('logout', [AuthController::class, 'destroy'])
 
 Route::resource('user-account', UserAccountController::class)
   ->only(['create', 'store']);
+
+
+Route::prefix('account-details')
+  ->name('account-details.')
+  ->middleware('auth')
+  ->group(function () {
+    Route::resource('lising', AccountDetailsController::class);
+  });

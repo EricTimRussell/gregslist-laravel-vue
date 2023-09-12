@@ -20,8 +20,8 @@
       </div>
 
       <div class="flex flex-nowrap items-center">
-        <input v-model.number="filterForm.areaFrom" class="input-filter-l w-28" type="text" placeholder="Area from" />
-        <input v-model.number="filterForm.areaTo" class="input-filter-r w-28" type="text" placeholder="Area to" />
+        <input v-model.number="filterForm.areaFrom" class="input-filter-l w-28" type="text" placeholder="Sq. Foot from" />
+        <input v-model.number="filterForm.areaTo" class="input-filter-r w-28" type="text" placeholder="Sq. Foot to" />
       </div>
       <button class="btn-normal" type="submit">Filter</button>
       <button @click="clear" type="reset">Clear</button>
