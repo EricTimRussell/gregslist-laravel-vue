@@ -1,4 +1,5 @@
 <template>
+  <Filters />
   <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
     <Box v-for="listing in listings.data" :key="listing.id" class="hover:scale-105 hover:bg-slate-800 cursor-pointer">
       <div>
@@ -33,6 +34,7 @@ import ListingSpace from '@/Components/ListingSpace.vue'
 import Price from '@/Components/Price.vue'
 import Box from '@/Components/UI/Box.vue'
 import Pagination from '@/Components/UI/Pagination.vue'
+import Filters from '../Listing/Index/Components/Filters.vue'
 
 defineProps({
   // listing prop is an array of objects
