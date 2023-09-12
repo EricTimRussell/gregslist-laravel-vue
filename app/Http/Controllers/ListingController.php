@@ -22,7 +22,9 @@ class ListingController extends Controller
         return inertia(
             'Listing/Index',
             [
-                'listings' => Listing::all()
+                // using pagination changes it from an array to an array of objects
+                'listings' => Listing::orderByDesc('created_at')
+                    ->paginate(10)
             ]
         );
     }
