@@ -1,5 +1,5 @@
 <template>
-  <Filters />
+  <Filters :filters="filters" />
   <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
     <Box v-for="listing in listings.data" :key="listing.id" class="hover:scale-105 hover:bg-slate-800 cursor-pointer">
       <div>
@@ -22,7 +22,7 @@
     </Box>
   </div>
 
-  <div v-if="listings.data.length" class="w-full flex justify-center mt-8 mb-8">
+  <div v-if="listings.data.length" class="w-full flex justify-center mt-4 mb-4">
     <Pagination :links="listings.links" />
   </div>
 </template>
@@ -38,7 +38,8 @@ import Filters from '../Listing/Index/Components/Filters.vue'
 
 defineProps({
   // listing prop is an array of objects
-  listings: { type: Object, required: true }
+  listings: { type: Object, required: true },
+  filters: Object
 })
 </script>
 
