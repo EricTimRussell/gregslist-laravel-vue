@@ -11,7 +11,10 @@ class UserAccountController extends Controller
 {
     public function index()
     {
-        return inertia('Account/Index');
+        return inertia(
+            'Account/Index',
+            ['listings' => Auth::user()->listings]
+        );
     }
 
     // Register a user
