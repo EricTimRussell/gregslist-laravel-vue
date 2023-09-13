@@ -23,11 +23,11 @@ Route::get('/hello', [IndexController::class, 'show'])
   ->middleware('auth');
 
 Route::resource('listing', ListingController::class)
-  //   // have to be authenticated to visit these routes
+  // have to be authenticated to visit these routes
   ->only(['create', 'store', 'edit', 'update', 'destroy'])
   ->middleware('auth');
 Route::resource('listing', ListingController::class)
-  //   // give access to all routes except these if not authenticated
+  // give access to all routes except these if not authenticated
   ->except(['create', 'store', 'edit', 'update', 'destroy']);
 
 Route::get('login', [AuthController::class, 'create'])
@@ -40,10 +40,19 @@ Route::delete('logout', [AuthController::class, 'destroy'])
 Route::resource('user-account', UserAccountController::class)
   ->only(['create', 'store']);
 
+// user auth routes
+Route::resource('user-account', UserAccountController::class)
+  ->only(['index', 'edit', 'update', 'destroy'])
+  ->middleware('auth');
 
-Route::prefix('account-details')
-  ->name('account-details.')
-  ->middleware('auth')
-  ->group(function () {
-    Route::resource('lising', AccountDetailsController::class);
-  });
+
+
+
+
+// This is the routing the instructor is using but I am not
+// Route::prefix('account-details')
+//   ->name('account-details.')
+//   ->middleware('auth')
+//   ->group(function () {
+//     Route::resource('listing', AccountDetailsController::class);
+//   });

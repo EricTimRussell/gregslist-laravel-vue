@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Hash;
 
 class UserAccountController extends Controller
 {
+    public function index()
+    {
+        return inertia('Account/Index');
+    }
+
     // Register a user
     public function create()
     {

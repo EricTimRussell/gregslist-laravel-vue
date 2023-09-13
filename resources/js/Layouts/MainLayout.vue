@@ -9,7 +9,7 @@
           <Link href="/listing">GregsList</Link>
         </div>
         <div class="flex items-center gap-4" v-if="user">
-          <div class="text-sm text-gray-400">{{ user.name }}</div>
+          <Link :href="route('user-account.index')" class="text-sm text-gray-400">{{ user.name }}</Link>
           <Link href="/listing/create" class="btn-primary">+
           New Listing
           </Link>
