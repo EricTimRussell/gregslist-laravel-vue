@@ -16,9 +16,6 @@
         Edit
         </Link>
       </div>
-      <div>
-        <Link as="button" :href="`listing/${listing.id}`" method="DELETE">Delete</Link>
-      </div>
     </Box>
   </div>
 
