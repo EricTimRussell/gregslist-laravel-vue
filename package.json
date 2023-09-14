@@ -14,9 +14,11 @@
         "postcss": "^8.4.29",
         "tailwindcss": "^3.3.3",
         "vite": "^4.0.0",
-        "vue": "^3.3.4"
+        "vue": "^3.3.4",
+        "lodash": "^4.17.21"
     },
     "dependencies": {
-        "@inertiajs/vue3": "^1.0.11"
+        "@inertiajs/vue3": "^1.0.11",
+        "lodash": "^4.17.21"
     }
 }

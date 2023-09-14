@@ -13,16 +13,21 @@
 <script setup>
 import { reactive, watch } from 'vue'
 import { router } from '@inertiajs/vue3'
+// @ts-ignore
+import { debounce } from 'lodash'
+
 const filterForm = reactive({
   deleted: false
 })
 
 watch(
-  () => filterForm.deleted, () => router.get(
+  // debounce adds a custom delay so that forms cannot be spammed
+  filterForm, debounce(() => router.get(
     // @ts-ignore
     route('user-account.index'),
     filterForm,
-    { preserveState: true, preserveScroll: true }
+    { preserveState: true, preserveScroll: true }),
+    1000,
   ))
 </script>
 
