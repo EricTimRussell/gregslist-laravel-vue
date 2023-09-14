@@ -11,11 +11,21 @@ use Illuminate\Support\Facades\Hash;
 class UserAccountController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
+        $filters = [
+            'deleted' => $request->boolean('deleted')
+        ];
+
         return inertia(
             'Account/Index',
-            ['listings' => Auth::user()->listings]
+            [
+                'listings' => Auth::user()
+                    ->listings()
+                    ->mostRecent()
+                    ->filter($filters)
+                    ->get()
+            ]
         );
     }
 
