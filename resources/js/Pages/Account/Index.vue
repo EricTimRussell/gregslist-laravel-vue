@@ -15,8 +15,8 @@
             <ListingAddress :listing="listing" class="text-gray-500" />
           </div>
           <div class="flex items-center gap-1 text-gray-600 dark:text-gray-300">
-            <Link class="btn-outline text-xs font-medium">Preview</Link>
-            <Link class="btn-outline text-xs font-medium">Edit</Link>
+            <!-- <Link class="btn-outline text-xs font-medium">Preview</Link>
+            <Link class="btn-outline text-xs font-medium">Edit</Link> -->
             <Link as="button" method="delete" class="btn-outline text-xs font-medium"
               :href="route('listing.destroy', { listing: listing.id })">
             Delete</Link>
@@ -37,6 +37,10 @@ import { Link } from "@inertiajs/vue3"
 
 
 defineProps({ listings: { type: Object, required: true } })
+
+
+
+
 </script>
 
 <style lang="scss" scoped></style>
