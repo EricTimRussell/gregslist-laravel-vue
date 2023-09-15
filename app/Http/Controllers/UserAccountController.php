@@ -21,6 +21,7 @@ class UserAccountController extends Controller
         return inertia(
             'Account/Index',
             [
+                'filters' => $filters,
                 'listings' => Auth::user()
                     ->listings()
                     // ->mostRecent()

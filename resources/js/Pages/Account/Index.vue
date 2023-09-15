@@ -2,7 +2,7 @@
   <div>
     <h1 class="text-3xl mb-4">Your Listings</h1>
     <section>
-      <ItemsFilter />
+      <ItemsFilter :filters="filters" />
     </section>
     <section class="grid grid-cols-1 lg:grid-cols-2 gap-2">
       <Box v-for="listing in listings" :key="listing.id">
@@ -36,7 +36,10 @@ import ItemsFilter from '../Account/Index/Components/ItemsFilter.vue'
 import { Link } from "@inertiajs/vue3"
 
 
-defineProps({ listings: { type: Object, required: true } })
+defineProps({
+  listings: { type: Object, required: true },
+  filters: { type: Object }
+})
 
 
 
