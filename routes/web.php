@@ -24,8 +24,16 @@ Route::get('/hello', [IndexController::class, 'show'])
 
 Route::resource('listing', ListingController::class)
   // have to be authenticated to visit these routes
-  ->only(['create', 'store', 'edit', 'update', 'destroy'])
-  ->middleware('auth');
+  ->middleware('auth')
+  ->only(['create', 'store', 'edit', 'update', 'destroy', 'restore'])
+  ->withTrashed();
+
+Route::name('listing.restore')
+  ->put(
+    'listing/{listing}/restore',
+    [ListingController::class, 'restore']
+  )->withTrashed();
+
 Route::resource('listing', ListingController::class)
   // give access to all routes except these if not authenticated
   ->except(['create', 'store', 'edit', 'update', 'destroy']);
