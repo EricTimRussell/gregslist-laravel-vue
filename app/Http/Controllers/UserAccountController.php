@@ -13,6 +13,7 @@ class UserAccountController extends Controller
 
     public function index(Request $request)
     {
+        // retrieve listings created by the user
         $filters = [
             'deleted' => $request->boolean('deleted'),
             ...$request->only(['by', 'order'])
