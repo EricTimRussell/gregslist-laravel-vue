@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountDetailsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\ListingImageController;
 use App\Http\Controllers\UserAccountController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,11 @@ Route::name('listing.restore')
 Route::resource('listing', ListingController::class)
   // give access to all routes except these if not authenticated
   ->except(['create', 'store', 'edit', 'update', 'destroy']);
+
+Route::resource('listing.image', ListingImageController::class)
+  ->only(['create', 'store']);
+
+
 
 Route::get('login', [AuthController::class, 'create'])
   ->name('login');

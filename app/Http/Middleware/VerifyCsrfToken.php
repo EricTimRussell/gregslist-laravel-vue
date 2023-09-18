@@ -13,6 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     // When a users token expires they can still logout without errors
     protected $except = [
-        '/logout'
+        '/logout',
+        '/listing/*'
     ];
 }
