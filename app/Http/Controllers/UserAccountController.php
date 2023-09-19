@@ -26,6 +26,7 @@ class UserAccountController extends Controller
                 'listings' => Auth::user()
                     ->listings()
                     ->filter($filters)
+                    // withCount adds total number of images as a property to the listing object
                     ->withCount('images')
                     ->paginate(5)
                     ->withQueryString()
