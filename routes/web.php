@@ -39,8 +39,9 @@ Route::resource('listing', ListingController::class)
   // give access to all routes except these if not authenticated
   ->except(['create', 'store', 'edit', 'update', 'destroy']);
 
+
 Route::resource('listing.image', ListingImageController::class)
-  ->only(['create', 'store']);
+  ->only(['create', 'store', 'destroy']);
 
 
 
