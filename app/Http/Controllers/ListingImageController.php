@@ -23,6 +23,13 @@ class ListingImageController extends Controller
     public function store(Listing $listing, Request $request)
     {
         if ($request->hasFile('images')) {
+            // validate each image add custom message if there is an error
+            $request->validate([
+                'images.*' => 'mimes:png,jpg,jpeg|max:5000'
+            ], [
+                'images.*.mimes' => 'Files should be in png, jpg, or jpeg format'
+            ]);
+
             foreach ($request->file('images') as $file) {
                 $path = $file->store('images', 'public');
 
