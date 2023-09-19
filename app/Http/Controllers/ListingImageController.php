@@ -10,6 +10,9 @@ class ListingImageController extends Controller
 {
     public function create(Listing $listing)
     {
+        // load related images to listing
+        $listing->load(['images']);
+
         return inertia(
             'Listing/ListingImage/Create',
             ['listing' => $listing]
