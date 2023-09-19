@@ -78,6 +78,9 @@ class ListingController extends Controller
         //   check whether user is authorized
         // $this->authorize('view', $listing);
 
+        // load related listing images
+        $listing->load(['images']);
+
         return inertia(
             'Listing/Show',
             [
