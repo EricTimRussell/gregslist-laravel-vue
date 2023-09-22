@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\ListingImageController;
+use App\Http\Controllers\ListingOfferController;
 use App\Http\Controllers\UserAccountController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,10 +40,13 @@ Route::resource('listing', ListingController::class)
   // give access to all routes except these if not authenticated
   ->except(['create', 'store', 'edit', 'update', 'destroy']);
 
+Route::resource('listing.offer', ListingOfferController::class)
+  ->middleware('auth')
+  ->only((['sotre']));
+
 
 Route::resource('listing.image', ListingImageController::class)
   ->only(['create', 'store', 'destroy']);
-
 
 
 Route::get('login', [AuthController::class, 'create'])
