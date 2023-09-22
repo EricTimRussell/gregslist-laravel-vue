@@ -42,7 +42,7 @@ Route::resource('listing', ListingController::class)
 
 Route::resource('listing.offer', ListingOfferController::class)
   ->middleware('auth')
-  ->only((['sotre']));
+  ->only((['store']));
 
 
 Route::resource('listing.image', ListingImageController::class)

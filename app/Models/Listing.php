@@ -36,7 +36,7 @@ class Listing extends Model
     // establish relationship
     public function offers(): HasMany
     {
-        return $this->hasMany(Offers::class, 'listing_id');
+        return $this->hasMany(Offer::class, 'listing_id');
     }
 
     public function scopeMostRecent(Builder $query): Builder
