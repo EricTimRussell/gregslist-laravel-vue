@@ -17,6 +17,7 @@ class Listing extends Model
 
     protected $sortable = ['price', 'created_at'];
 
+    // establish relationship
     public function owner(): BelongsTo
     {
         return $this->belongsTo(
@@ -26,15 +27,23 @@ class Listing extends Model
         );
     }
 
+    // establish relationship
     public function images(): HasMany
     {
         return $this->hasMany(ListingImage::class);
+    }
+
+    // establish relationship
+    public function offers(): HasMany
+    {
+        return $this->hasMany(Offers::class, 'listing_id');
     }
 
     public function scopeMostRecent(Builder $query): Builder
     {
         return $query->latest('created_at');
     }
+
 
     public function scopeFilter(Builder $query, array $filters): Builder
     {
