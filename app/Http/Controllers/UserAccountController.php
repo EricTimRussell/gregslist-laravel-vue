@@ -39,7 +39,9 @@ class UserAccountController extends Controller
     {
         return inertia(
             'Account/Show',
-            ['listing' => $listing->load('offers')]
+            [
+                'listing' => $listing->load('offers')
+            ]
         );
     }
 
