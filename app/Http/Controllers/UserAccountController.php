@@ -28,9 +28,18 @@ class UserAccountController extends Controller
                     ->filter($filters)
                     // withCount adds total number of images as a property to the listing object
                     ->withCount('images')
+                    ->withCount('offers')
                     ->paginate(5)
                     ->withQueryString()
             ]
+        );
+    }
+
+    public function show(Listing $listing)
+    {
+        return inertia(
+            'Account/Show',
+            ['listing' => $listing->load('offers')]
         );
     }
 

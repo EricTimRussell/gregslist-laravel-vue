@@ -61,7 +61,7 @@ Route::resource('user-account', UserAccountController::class)
 
 // user auth routes
 Route::resource('user-account', UserAccountController::class)
-  ->only(['index', 'edit', 'update', 'destroy'])
+  ->only(['index', 'edit', 'update', 'destroy', 'show'])
   ->middleware('auth');
 
 

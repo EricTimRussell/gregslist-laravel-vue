@@ -35,6 +35,12 @@
               ({{ listing.images_count }})
               </Link>
             </div>
+            <div class="mt-2">
+              <Link :href="route('user-account.show', { listing: listing.id, user_account: user })"
+                class="block w-full btn-outline text-xs font-medium text-center">Offers
+              ({{ listing.offers_count }})
+              </Link>
+            </div>
           </section>
         </div>
       </Box>
@@ -52,14 +58,17 @@ import Price from '@/Components/Price.vue'
 import ListingSpace from '@/Components/ListingSpace.vue'
 import ListingAddress from '@/Components/ListingAddress.vue'
 import ItemsFilter from '../Account/Index/Components/ItemsFilter.vue'
-import { Link } from "@inertiajs/vue3"
-
-
+import { Link, usePage } from "@inertiajs/vue3"
+import { computed } from 'vue'
 defineProps({
   listings: { type: Object, required: true },
   filters: { type: Object }
 })
 
+const page = usePage()
+const user = computed(() =>
+  page.props.user
+)
 
 
 
